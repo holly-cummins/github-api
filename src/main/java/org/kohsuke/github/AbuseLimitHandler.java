@@ -89,7 +89,7 @@ public abstract class AbuseLimitHandler extends GitHubAbuseLimitHandler {
         private long parseWaitTime(HttpURLConnection uc) {
             String v = uc.getHeaderField("Retry-After");
             if (v == null)
-                return 60 * 1000; // can't tell, return 1 min
+                return 61 * 1000; // can't tell, return 1 min plus 1 second for luck
 
             return Math.max(1000, Long.parseLong(v) * 1000);
         }
