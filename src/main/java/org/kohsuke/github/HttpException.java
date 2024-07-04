@@ -42,7 +42,7 @@ public class HttpException extends GHIOException {
      * @see HttpURLConnection#getResponseMessage() HttpURLConnection#getResponseMessage()
      */
     public HttpException(String message, int responseCode, String responseMessage, String url) {
-        super(message);
+        super(message + " Response code: " + responseCode);
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
         this.url = url;
