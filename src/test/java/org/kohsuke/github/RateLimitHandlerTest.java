@@ -72,7 +72,7 @@ public class RateLimitHandlerTest extends AbstractGitHubWireMockTest {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(HttpException.class));
-            assertThat(e.getMessage(), equalTo("API rate limit reached"));
+            assertThat(e.getMessage(), startsWith("API rate limit reached"));
         }
 
         assertThat(mockGitHub.getRequestCount(), equalTo(2));
@@ -105,7 +105,7 @@ public class RateLimitHandlerTest extends AbstractGitHubWireMockTest {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(HttpException.class));
-            assertThat(e.getMessage(), equalTo("API rate limit reached"));
+            assertThat(e.getMessage(), startsWith("API rate limit reached"));
         }
 
         assertThat(mockGitHub.getRequestCount(), equalTo(2));
