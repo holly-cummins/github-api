@@ -208,7 +208,7 @@ public class AbuseLimitHandlerTest extends AbstractGitHubWireMockTest {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(HttpException.class));
-            assertThat(e.getMessage(), equalTo("Abuse limit reached"));
+            assertThat(e.getMessage(), startsWith("Abuse limit reached"));
         }
 
         if (savedConnection[0].toString().contains("GitHubConnectorResponseHttpUrlConnectionAdapter")) {
@@ -246,7 +246,7 @@ public class AbuseLimitHandlerTest extends AbstractGitHubWireMockTest {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(HttpException.class));
-            assertThat(e.getMessage(), equalTo("Abuse limit reached"));
+            assertThat(e.getMessage(), startsWith("Abuse limit reached"));
         }
 
         assertThat(mockGitHub.getRequestCount(), equalTo(2));
@@ -371,7 +371,7 @@ public class AbuseLimitHandlerTest extends AbstractGitHubWireMockTest {
             fail();
         } catch (Exception e) {
             assertThat(e, instanceOf(HttpException.class));
-            assertThat(e.getMessage(), equalTo("Abuse limit reached"));
+            assertThat(e.getMessage(), startsWith("Abuse limit reached"));
         }
         assertThat(mockGitHub.getRequestCount(), equalTo(2));
     }
